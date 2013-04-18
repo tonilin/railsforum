@@ -1,7 +1,9 @@
 # -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
+  before_filter :check_is_admin, :only => [:new, :create, :edit, :update, :destroy]
   before_filter :find_board, :only => [:show, :edit, :update, :destroy]
+
 
   def show
     @topics = @board.topics.recent.includes(:user)
@@ -57,6 +59,12 @@ class BoardsController < ApplicationController
   def find_board
     @board = Board.find(params[:id])
 
+  end
+
+  def check_is_admin
+    if !current_user.is_admin?
+      redirect_to "/", :flash => { :warning => "必須為管理員" }
+    end
   end
 
 
