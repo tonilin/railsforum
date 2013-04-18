@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418023421) do
+ActiveRecord::Schema.define(:version => 20130418023823) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",        :default => ""
     t.integer  "topics_count", :default => 0
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "topics", :force => true do |t|
+    t.integer  "board_id"
+    t.string   "title",      :default => ""
+    t.string   "content",    :default => ""
+    t.integer  "user_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
