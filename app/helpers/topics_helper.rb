@@ -5,7 +5,7 @@ module TopicsHelper
   end
 
   def render_topic_attach(topic)
-    if(topic.attach && !topic.attach.blank?)
+    if(topic.attach.present?)
       image_tag topic.attach.url(:medium)
     end
   end
