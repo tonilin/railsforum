@@ -1,9 +1,9 @@
 class TopicsController < ApplicationController
   before_filter :find_board, :only => [:new, :create]
-  before_filter :find_topic, :only => [:show]
+  before_filter :find_topic, :only => [:show, :destroy]
 
   def show
-
+    @board = @topic.board
 
   end
 
@@ -20,6 +20,15 @@ class TopicsController < ApplicationController
     else
       render :action => :new
     end
+
+  end
+
+
+  def destroy
+    @board = @topic.board
+    @topic.destroy
+
+    redirect_to board_path(@board);
 
   end
 

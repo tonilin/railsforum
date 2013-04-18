@@ -13,7 +13,7 @@
   <tbody>
     <% @topics.each do |topic|%>
     <tr>
-      <td><%= link_to(topic.title, board_topic_path(topic)) %></td>
+      <td><%= link_to(topic.title, board_topic_path(@board,topic)) %></td>
       <td><%= topic.created_at %></td>
     </tr>
     <%end%>

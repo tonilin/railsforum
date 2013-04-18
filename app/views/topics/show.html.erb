@@ -1,3 +1,6 @@
 <h2><%= @topic.title %></h2>
 
 <div><%= @topic.content %></div>
+
+
+<%= link_to("刪除", board_topic_path(@board, @topic), :method => "delete", :confirm => "確定要刪除嗎?" ) %>
