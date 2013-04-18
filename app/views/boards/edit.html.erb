@@ -19,6 +19,8 @@
   </div>
 </div>
 
+<%= link_to("刪除討論版", board_path(@board), :method => "delete", :confirm => "確定要刪除嗎?" ) %>
+
 <div class="control-group">
   <div class="controls">
     <%= f.submit "送出",:class => "btn" %>

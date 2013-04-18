@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
-  before_filter :find_board, :only => [:show, :edit, :update]
+  before_filter :find_board, :only => [:show, :edit, :update, :destroy]
 
   def show
     @topics = @board.topics
@@ -41,6 +41,14 @@ class BoardsController < ApplicationController
       render :edit
     end
   end
+
+
+  def destroy
+    @board.destroy
+
+    redirect_to "/"
+  end
+
 
 
 
