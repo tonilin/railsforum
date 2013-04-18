@@ -1,3 +1,9 @@
+<%
+  add_breadcrumbs(@board.title, board_path(@board))
+  add_breadcrumbs(@topic.title)
+%>
+
+
 <h2><%= @topic.title %></h2>
 
 <div><%= @topic.content %></div>
