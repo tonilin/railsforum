@@ -13,7 +13,7 @@
   <tbody>
     <% @boards.each do |board|%>
     <tr>
-      <td><%= link_to(board.title, board_path(board)) %></td>
+      <td><%= render_board_title(board) %></td>
       <td><%= board.topics.size %></td>
     </tr>
     <%end%>
