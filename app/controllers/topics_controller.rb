@@ -2,8 +2,8 @@
 class TopicsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_filter :find_board
-  before_filter :find_topic, :except => [:new, :create]
-  before_filter :validate_owner, :only => [:edit, :update, :destroy]
+  before_filter :find_topic, :only => [:show]
+  before_filter :find_user_topic, :only => [:edit, :update, :destroy]
 
   def show
 
@@ -69,10 +69,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
 
-  def validate_owner
-    if @topic.user != current_user
-      redirect_to board_topic_path(@board, @topic), :notice => "You are not the owner of the topic"
-    end
+  def find_user_topic
+    @topic = current_user.topics.find(params[:id])
   end
 
 
