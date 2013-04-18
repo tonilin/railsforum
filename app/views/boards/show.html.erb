@@ -1,10 +1,11 @@
 <h2><%= @board.title %><h2>
 
+<%= link_to("new topic", new_board_topic_path(@board)) %>
+
 
 <table class="table">
   <thead>
     <th>Title</th>
-    <th>User</th>
     <th>Time</th>
   </thead>
 
@@ -12,8 +13,7 @@
   <tbody>
     <% @topics.each do |topic|%>
     <tr>
-      <td><%= link_to(topic.title, topic_path(topic)) %></td>
-      <td><%= topic.user.email %></td>
+      <td><%= link_to(topic.title, board_topic_path(topic)) %></td>
       <td><%= topic.created_at %></td>
     </tr>
     <%end%>

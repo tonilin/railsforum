@@ -8,6 +8,12 @@ class BoardsController < ApplicationController
   end
 
 
+  def new
+
+
+  end
+
+
 
 
   protected

@@ -1,0 +1,39 @@
+
+
+<h2>新增主題</h2>
+
+<% if @topic.errors.any? %>
+      <ul>
+      <% @topic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+
+<%= form_for @topic, :url => board_topics_path(@board), :html => {:class => "form-horizontal", :multipart => true} do |f| %>
+<div class="control-group">
+  <label class="control-label" for="topic_title">主題名稱</label>
+  <div class="controls">
+    <%= f.text_field :title %>
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label" for="topic_title">內容</label>
+  <div class="controls">
+    <%= f.text_area :content,:rows => 10%>
+  </div>
+</div>
+
+
+<div class="control-group">
+  <div class="controls">
+    <%= f.submit "送出",:class => "btn" %>
+  </div>
+</div>
+
+
+
+
+
+<% end %>
