@@ -4,6 +4,10 @@ module TopicsHelper
     user.email
   end
 
-
+  def render_topic_attach(topic)
+    if(topic.attach.present?)
+      image_tag topic.attach.url(:medium)
+    end
+  end
 
 end
