@@ -24,7 +24,7 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to board_url(@board)
     else
-      render :action => :new
+      render :new
     end
 
   end
