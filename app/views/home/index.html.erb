@@ -1,0 +1,22 @@
+<h2>Home</h2>
+
+
+<%= link_to("new board", new_board_path) %>
+
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Topics</th>
+  </thead>
+
+
+  <tbody>
+    <% @boards.each do |board|%>
+    <tr>
+      <td><%= render_board_title(board) %></td>
+      <td><%= board.topics.size %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
