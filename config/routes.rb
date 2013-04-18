@@ -3,6 +3,9 @@ Railsforum::Application.routes.draw do
   root :to => 'home#index'
 
 
+  resources :boards do
+    resources :topics
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
