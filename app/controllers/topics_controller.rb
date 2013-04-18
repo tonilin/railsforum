@@ -16,9 +16,9 @@ class TopicsController < ApplicationController
     @topic = @board.topics.build(params[:topic])
 
     if @topic.save
-      redirect_to board_topic_url(@board ,@topic)
+      redirect_to board_topic_path(@board ,@topic)
     else
-      render :action => :new
+      render :new
     end
 
   end
@@ -28,7 +28,7 @@ class TopicsController < ApplicationController
     @board = @topic.board
     @topic.destroy
 
-    redirect_to board_path(@board);
+    redirect_to board_path(@board)
 
   end
 
