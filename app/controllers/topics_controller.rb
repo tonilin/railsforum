@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class TopicsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :find_board, :only => [:new, :create]
   before_filter :find_topic, :only => [:show, :destroy, :edit, :update]
 
@@ -22,6 +23,8 @@ class TopicsController < ApplicationController
 
   def create
     @topic = @board.topics.build(params[:topic])
+
+    @topic.user = current_user
 
     if @topic.save
       redirect_to board_topic_path(@board ,@topic)

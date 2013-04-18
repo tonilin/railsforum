@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :find_board, :only => [:show, :edit, :update, :destroy]
 
   def show
