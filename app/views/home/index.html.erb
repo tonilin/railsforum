@@ -1,0 +1,21 @@
+
+<h2>home</h2>
+
+
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Topics</th>
+  </thead>
+
+
+  <tbody>
+    <% @boards.each do |board|%>
+    <tr>
+      <td><%= link_to(board.title, board_path(board)) %></td>
+      <td><%= board.topics.size %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
