@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418080740) do
+ActiveRecord::Schema.define(:version => 20130418084443) do
 
   create_table "boards", :force => true do |t|
     t.string   "title",        :default => ""
@@ -22,11 +22,15 @@ ActiveRecord::Schema.define(:version => 20130418080740) do
 
   create_table "topics", :force => true do |t|
     t.integer  "board_id"
-    t.string   "title",      :default => ""
-    t.string   "content",    :default => ""
+    t.string   "title",               :default => ""
+    t.string   "content",             :default => ""
     t.integer  "user_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
   end
 
   create_table "users", :force => true do |t|

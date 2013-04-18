@@ -2,6 +2,8 @@
 
 <div><%= @topic.content %></div>
 
+<div><%= render_topic_attach(@topic) %></div>
+
 
 <%= link_to("刪除", board_topic_path(@board, @topic), :method => "delete", :confirm => "確定要刪除嗎?" ) %>
 <%= link_to("修改", edit_board_topic_path(@board, @topic)) %>
