@@ -62,7 +62,7 @@ class BoardsController < ApplicationController
   end
 
   def check_is_admin
-    if !current_user.is_admin
+    if !current_user.is_admin?
       redirect_to "/", :flash => { :warning => "必須為管理員" }
     end
   end
