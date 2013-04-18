@@ -30,7 +30,8 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    drop_breadcrumb("編輯 #{@board.title} 討論版")
+    drop_breadcrumb(@board.title, board_path(@board))
+    drop_breadcrumb("編輯討論版")
   end
 
   def update
