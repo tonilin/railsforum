@@ -2,7 +2,11 @@
 
 <ul>
   <li><%= link_to("new topic", new_board_topic_path(@board)) %></li>
-  <li><%= link_to("edit board", edit_board_path(@board)) %></li>
+
+  <% if current_user && current_user.is_admin %>
+    <li><%= link_to("edit board", edit_board_path(@board)) %></li>
+  <% end %>
+
 </ul>
 
 <table class="table">
