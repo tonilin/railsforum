@@ -1,0 +1,27 @@
+<h2><%= @board.title %></h2>
+
+<ul>
+  <li><%= link_to("new topic", new_board_topic_path(@board)) %></li>
+  <li><%= link_to("edit board", edit_board_path(@board)) %></li>
+</ul>
+
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Time</th>
+  </thead>
+
+
+  <tbody>
+    <% @topics.each do |topic|%>
+    <tr>
+      <td><%= link_to(topic.title, board_topic_path(@board,topic)) %></td>
+      <td><%= topic.created_at %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+
+
