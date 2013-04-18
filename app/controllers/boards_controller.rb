@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
-  before_filter :find_board, :only => [:show]
+  before_filter :find_board, :only => [:show, :edit, :update]
 
   def show
     @topics = @board.topics
@@ -28,6 +28,19 @@ class BoardsController < ApplicationController
     end
 
   end
+
+  def edit
+    drop_breadcrumb("編輯 #{@board.title} 討論版")
+  end
+
+  def update
+    if @board.update_attributes( params[:board] )
+      redirect_to board_path(@board)
+    else
+      render :edit
+    end
+  end
+
 
 
   protected

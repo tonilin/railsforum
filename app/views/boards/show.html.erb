@@ -1,7 +1,9 @@
 <h2><%= @board.title %></h2>
 
-<%= link_to("new topic", new_board_topic_path(@board)) %>
-
+<ul>
+  <li><%= link_to("new topic", new_board_topic_path(@board)) %></li>
+  <li><%= link_to("edit board", edit_board_path(@board)) %></li>
+</ul>
 
 <table class="table">
   <thead>
