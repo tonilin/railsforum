@@ -17,7 +17,7 @@
     <% @topics.each do |topic|%>
     <tr>
       <td><%= link_to(topic.title, board_topic_path(@board,topic)) %></td>
-      <td><%= topic.user.email %></td>
+      <td><%= render_topic_author(topic.user) %></td>
       <td><%= topic.created_at %></td>
     </tr>
     <%end%>

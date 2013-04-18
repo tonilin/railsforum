@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_filter :find_board
   before_filter :find_topic, :except => [:new, :create]
-  before_filter :validate_owner, :only => [:edit, :update, :destroy,]
+  before_filter :validate_owner, :only => [:edit, :update, :destroy]
 
   def show
 
