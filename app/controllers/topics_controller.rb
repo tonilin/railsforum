@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class TopicsController < ApplicationController
   before_filter :find_board, :only => [:new, :create]
-  before_filter :find_topic, :only => [:show, :destroy]
+  before_filter :find_topic, :only => [:show, :destroy, :edit, :update]
 
   def show
     @board = @topic.board
@@ -39,6 +39,27 @@ class TopicsController < ApplicationController
     redirect_to board_path(@board)
 
   end
+
+  def edit
+    @board = @topic.board
+
+    drop_breadcrumb(@board.title, board_path(@board))
+    drop_breadcrumb(@topic.title, board_topic_path(@board,@topic))
+    drop_breadcrumb("編輯主題")
+  end
+
+  def update
+    @board = @topic.board
+
+    if @topic.update_attributes( params[:topic] )
+      redirect_to board_topic_path(@board)
+    else
+      render :edit
+    end
+  end
+
+
+
 
 
 
