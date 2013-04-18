@@ -4,8 +4,7 @@ class BoardsController < ApplicationController
   before_filter :find_board, :only => [:show, :edit, :update, :destroy]
 
   def show
-    @topics = @board.topics
-
+    @topics = @board.topics.includes(:user).order("created_at desc");
 
     drop_breadcrumb(@board.title)
   end
