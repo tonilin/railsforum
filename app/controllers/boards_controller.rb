@@ -9,11 +9,21 @@ class BoardsController < ApplicationController
 
 
   def new
-
+    @board = Board.new
 
   end
 
 
+  def create
+    @board = Board.new(params[:board])
+
+    if @board.save
+      redirect_to board_url(@board)
+    else
+      render :action => :new
+    end
+
+  end
 
 
   protected
