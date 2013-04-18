@@ -2,7 +2,7 @@
 
 <div><%= @topic.content %></div>
 
-<div><%= image_tag @topic.attach.url(:medium) %></div>
+<div><%= render_topic_attach(@topic) %></div>
 
 
 <%= link_to("刪除", board_topic_path(@board, @topic), :method => "delete", :confirm => "確定要刪除嗎?" ) %>
