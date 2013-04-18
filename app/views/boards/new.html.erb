@@ -1,7 +1,3 @@
-<%
-  add_breadcrumbs("新增討論版")
-%>
-
 <% if @board.errors.any? %>
       <ul>
       <% @board.errors.full_messages.each do |msg| %>

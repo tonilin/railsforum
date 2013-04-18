@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TopicsController < ApplicationController
   before_filter :find_board, :only => [:new, :create]
   before_filter :find_topic, :only => [:show, :destroy]
@@ -5,11 +6,18 @@ class TopicsController < ApplicationController
   def show
     @board = @topic.board
 
+
+    drop_breadcrumb(@board.title, board_path(@board))
+    drop_breadcrumb(@topic.title)
   end
 
 
   def new
     @topic = @board.topics.build
+
+
+    drop_breadcrumb(@board.title, board_path(@board))
+    drop_breadcrumb("新增主題")
   end
 
   def create

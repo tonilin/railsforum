@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BoardsController < ApplicationController
   before_filter :find_board, :only => [:show]
 
@@ -5,12 +6,15 @@ class BoardsController < ApplicationController
     @topics = @board.topics
 
 
+    drop_breadcrumb(@board.title)
   end
 
 
   def new
     @board = Board.new
 
+
+    drop_breadcrumb("新增討論版")
   end
 
 
