@@ -1,13 +1,11 @@
 <h2><%= @board.title %></h2>
 
-<ul>
-  <li><%= link_to("new topic", new_board_topic_path(@board)) %></li>
-
-  <% if current_user && current_user.is_admin? %>
-    <li><%= link_to("edit board", edit_board_path(@board)) %></li>
-  <% end %>
-
-</ul>
+<div class="pull-right">
+<% if current_user && current_user.is_admin? %>
+  <%= link_to("Edit board", edit_board_path(@board), :class => "btn") %>
+<% end %>
+<%= link_to("New topic", new_board_topic_path(@board), :class => "btn btn-primary") %></li>
+</div>
 
 <table class="table">
   <thead>
