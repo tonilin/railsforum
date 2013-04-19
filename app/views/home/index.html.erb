@@ -1,7 +1,7 @@
 <h2>Home</h2>
 
 <% if current_user && current_user.is_admin? %>
-  <%= link_to("new board", new_board_path) %>
+  <%= link_to("new board", new_board_path, :class => "btn btn-primary pull-right") %>
 <% end %>
 
 

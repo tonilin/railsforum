@@ -6,7 +6,8 @@ module TopicsHelper
 
   def render_topic_attach(topic)
     if(topic.attach.present?)
-      image_tag topic.attach.url(:medium)
+      content_tag("div", image_tag(topic.attach.url(:medium), :class => "img-rounded"))
+
     end
   end
 
