@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render_page_title %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= render_page_title_tag %>
+  <%= render_page_description_meta_tag %>
+  <%= render_page_keywords_meta_tag %>
+  <%= render_page_image_link_tag %>
+  <%= csrf_meta_tag %>
+
+  <%= stylesheet_link_tag "application" %>
+
+  <%= yield :stylesheets %>
+
+  <meta property="og:title"       content="<%= page_title ||  SeoHelper.configuration.site_name %>"/>
+  <meta property="og:description" content="<%= page_description || SeoHelper.configuration.default_page_description %>"/>
+  <meta property="og:image:url"   content="<%= page_image ||  SeoHelper.configuration.default_page_image %>"/>
+
 </head>
-<body>
 
-<% if current_user %>
-  <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-  <%= link_to('修改密碼', edit_registration_path(:user)) %>
-<% else %>
-  <%= link_to('註冊', new_registration_path(:user)) %> |
-  <%= link_to('登入', new_session_path(:user)) %>
-<% end %>
+<%= render_body_tag %>
 
-
-<%= notice_message %>
+<%= render :partial => "common/menu" %>
 
 <%= render_breadcrumb %>
+  <div class="container">
 
-<%= yield %>
+      <%= notice_message %>
+
+      <div class="content">
+        <div class="row">
+          <%= yield %>
+          <%= yield (:sidebar) %>
+        </div>
+
+      </div>
+
+      <%= render :partial => "common/footer" %>
+  </div>
+
+
+
+
+
+  <%= render :partial => "common/bootstrap_modal" %>
+  <%= render :partial => "common/facebook_js" %>
+  <%= render :partial => "common/google_analytics" %>
+
+  <%= javascript_include_tag "application" %>
+
+  <%= yield :javascripts %>
+
 
 </body>
 </html>

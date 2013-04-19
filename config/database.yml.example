@@ -4,7 +4,7 @@ development: &default
   database: railsforum_development
   host: localhost
   username: root
-  password: '123456'
+  password: ""
 
 test: &TEST
   <<: *default
