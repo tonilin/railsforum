@@ -1,14 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'bootstrap_helper'
-gem 'devise'
-gem "paperclip"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +20,58 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "paperclip"
 gem 'jquery-rails'
+gem 'devise'
+gem "seo_helper", "~> 1.0"
+gem "open_graph_helper"
+
+gem "rmagick"
+gem "carrierwave"
+gem "carrierwave-meta"
+
+gem "settingslogic"
+
+gem "anjlab-bootstrap-rails", ">= 2.2.2", :require => "bootstrap-rails"
+gem "bootstrap_helper", ">= 2.1.2.1"
+gem "simple_form", "2.0.3"
+gem "will_paginate", "3.0.3"
+
+gem "high_voltage"
+
+gem "airbrake"
+gem "turbo-sprockets-rails3"
+
+gem "rvm-capistrano"
+
+gem "omniauth"
+gem "omniauth-facebook"
+gem "auto-facebook"
+
+
+gem "hipchat"
+
+# Cache
+gem "dalli"
+
+group :assets do
+  gem "compass-rails"
+end
+
+group :development do
+  gem "capistrano"
+  gem "capistrano-ext"
+  gem "cape"
+  gem "binding_of_caller"
+  gem "better_errors"
+  gem "magic_encoding"
+  gem "annotate"
+  gem "powder"
+  gem "pry-nav"
+  gem "pry-remote"
+end
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

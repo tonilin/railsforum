@@ -13,7 +13,13 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+*.DS_Store
+*.swp
+.env
+public/uploads
+vendor/bundler_gems
+config/database.yml
+config/config.yml
 
 # Ignore user upload file
-/public/system/*
+/public/system/

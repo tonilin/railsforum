@@ -9,7 +9,7 @@
 <% end %>
 
 
-<%= form_for @topic, :url => board_topics_path(@board), :html => {:class => "form-horizontal", :multipart => true} do |f| %>
+<%= form_for @topic, :url => board_topics_path(@board), :html => {:class => "form-horizontal well", :multipart => true} do |f| %>
 <div class="control-group">
   <label class="control-label" for="topic_title">主題名稱</label>
   <div class="controls">
@@ -31,7 +31,7 @@
 
 <div class="control-group">
   <div class="controls">
-    <%= f.submit "送出",:class => "btn" %>
+    <%= f.submit "送出",:class => "btn btn-primary" %>
   </div>
 </div>
 
